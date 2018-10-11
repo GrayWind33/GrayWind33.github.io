@@ -8,6 +8,7 @@ header-img: img/post-bg-mma-0.png
 catalog: true
 tags:
     - JDK源码解析
+    - 多线程
 ---
 
 ThreadLocal是作为key值存储在ThreadLocalMap里面的，而ThreadLocalMap是一个典型的hash表，它的实例存储在了Thread.threadLocals，并且由于并非所有线程实例都需要用到threadLocals，它是懒汉式的初始化，在第一次插入时才会初始化创建ThreadLocalMap实例。输入的value是一个泛型对象，它可以是Integer、Double等基本装箱类型，也可以是自定义的bean类，可以认为Thread实例t拥有一个ThreadLocalMap实例threadLocals，它是一个hash表，它以ThreadLocal的实例作为key值，以具体内容泛型变量value作为value值，每个线程在存活期间有自己的ThreadLocalMap实例，所以各线程间互不干涉。示例如下：

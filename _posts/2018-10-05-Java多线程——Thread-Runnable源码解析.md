@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 多线程
 ---
 
 Java多线程的两种实现方法大家都应该知道了：继承Thread的子类实例化和实现Runnable接口用这个接口实现类去创建Thread实例。
