@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 ArrayList是最常用的集合类，底层是由数组实现的

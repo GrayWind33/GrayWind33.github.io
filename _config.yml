@@ -1,10 +1,10 @@
 # Site settings
-title: BY Blog
+title: GW Blog
 SEOTitle: GrayWind的博客 | GW Blog
 header-img: img/post-bg-desk.jpg
 email: graywindjy@163.com
 description: "Every failure is leading towards success."
-keyword: "BY, BY Blog, GrayWind的博客, graywind, 灰色的风, Java"
+keyword: "GW, GW Blog, GrayWind的博客, graywind, 灰色的风, Java"
 url: "https://graywind33.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 #github_repo: "https://github.com/GrayWind33/GrayWind33.github.io" # you code repository

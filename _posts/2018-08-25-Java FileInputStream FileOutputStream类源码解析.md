@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - IO流
 ---
 
 FileInputStream和FileOutputStream是匹配的文件输出输出流，读取和写入的是byte，所以适合用来处理一些非字符的数据，比如图片数据。因为涉及到大量关于文件的操作，所以存在很多的native方法和利用操作系统的文件系统实现，所以要深入了解文件输入输出流还是需要加强操作系统和native源码的知识。先来看一下简单的使用示例：
@@ -573,3 +574,4 @@ finalize和FIleInputStream一样也是要通过继承类来调用的protected方
         }
     }
 ```
+

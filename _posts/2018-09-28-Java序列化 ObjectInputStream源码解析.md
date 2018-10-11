@@ -8,6 +8,8 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - IO流
+    - 序列化
 ---
 
 上一篇讲了类的序列化，今天要讲类的反序列化，ObjectInputStream。

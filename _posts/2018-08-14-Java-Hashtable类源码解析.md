@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 老生常谈的问题——Hashtable和HashMap有什么区别

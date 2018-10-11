@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 Set集合中不含有重复的元素，插入重复的元素会失败。常用的有HashSet LinkedHashSet TreeSet。HashSet是无序的集合，LinkedHashSet中的排序和插入成功的顺序一致重复插入，TreeSet中元素是有序排列的，排序的依据是自身的comparator如果为null则根据key从小到大排序。HashSet和LinkedHashSet都是支持插入null的，TreeSet是否支持视comparator的情况，如果comparator不支持比较null的大小或者没有自定义的comparator则不支持插入null

@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 LinkedList底层为双向链表同样继承了AbstractSequentialList<E>，跟ArrayList的数组相比读取效率低，不支持随机读取，碎片化空间利用率高，平均随机插入效率相对高。同时可以用来实现queue。属性有:

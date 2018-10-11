@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 　　由于TreeNode本身是红黑树的实现，所以在分析TreeNode的之前我还是摸了一篇算法导论里红黑树的读书笔记：[算法导论——红黑树](https://www.cnblogs.com/graywind/p/9468965.html?spm=a2c4e.11153940.blogcont625213.13.31e2453epdh3fD)，从伪代码行数也可以看出完整的红黑树的插入和删除操作代码是很长的，下面源码分析部分的行数就更多了，所以所谓手写红黑树画个图分析下逻辑还行，手写代码估计要写死(滑稽)

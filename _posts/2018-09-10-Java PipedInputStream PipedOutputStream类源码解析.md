@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - IO流
 ---
 
 管道流主要是用于不同线程间的数据交互，可以通过一个PipedInputStream和一个PipedOutputStream相互连接来进行通信，**从PipedOutputStream写入字节到PipedInputStream中，所以PipedOutputStream是writer端，PipedInputStream是reader端**。

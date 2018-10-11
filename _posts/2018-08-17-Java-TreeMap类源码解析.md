@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 TreeMap实现的是**基于红黑树的有序键值对集合**，底层完全是树状链表不含有数组，key不能为null，value可以为null。本身含有comparator，若comparator不为null则所有关于key的比较都是通过comparator完成，否则直接根据key本身的class实现来比较，若此时key不是可比较类则会抛出错误。遍历的顺序是中序遍历，也就是说key是从小到大排列的。所有涉及遍历的操作都是fast-fail机制，这个在我集合解析系列中提过多次了，只有在put或remove操作中新增、删除结点造成树结构变更时会增加modCount值，本身是非线性安全类所有方法都没有synchronized修饰。

@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 集合
 ---
 
 LinkedHashMap继承了HashMap，他在HashMap的基础上增加了一个双向链表的结构，链表默认维持key插入的顺序，重复的key值插入不会改变顺序，适用于使用者需要返回一个顺序相同的map对象的情况。还可以生成access-order顺序的版本，按照最近访问顺序来存储，刚被访问的结点处于链表的末尾，适合LRU，put get compute merge都算作一次访问，其中put key值相同的结点也算作一次访问，replace只有在换掉一个键值对的时候才算一次访问，putAll产生的访问顺序取决于原本map的迭代器实现。
@@ -289,3 +290,4 @@ removeEldestEntry在put和putAll插入键值对时调用，原本是一定返回
                 return oldValue;
             }
 ```
+

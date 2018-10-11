@@ -8,6 +8,7 @@ header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - JDK源码解析
+    - 字符串
 ---
 
 ## StringBuffer
@@ -465,3 +466,4 @@ StringBuilder在单线程情况下由于没有了同步锁性能更好，推荐�
         count = fields.get("count", 0);
     }
 ```
+
