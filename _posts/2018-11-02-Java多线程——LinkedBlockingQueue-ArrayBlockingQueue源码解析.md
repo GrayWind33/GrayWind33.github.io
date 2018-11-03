@@ -418,7 +418,7 @@ offer不加参数时为不等待，并且它对加锁是等待获取锁
     public boolean offer(E e) {
         checkNotNull(e);
         final ReentrantLock lock = this.lock;
-        lock.lock();//等待加锁
+        lock.lock();//非中断加锁
         try {
             if (count == items.length)
                 return false;//队列满了直接返回false
@@ -432,7 +432,7 @@ offer不加参数时为不等待，并且它对加锁是等待获取锁
     }
 ```
 
-offer有时间参数时是限时等待，加锁方式变为抢占式加锁
+offer有时间参数时是限时等待，加锁方式变为中断式加锁
 
 ```java
     public boolean offer(E e, long timeout, TimeUnit unit)
@@ -456,7 +456,7 @@ offer有时间参数时是限时等待，加锁方式变为抢占式加锁
     }
 ```
 
-put方法是抢占式加锁加上不限时等待
+put方法是中断式加锁加上不限时等待
 
 ```java
     public void put(E e) throws InterruptedException {
@@ -492,16 +492,16 @@ enqueue，因为是循环数组，所以下标到达数组边界时要重新回�
 
 弹出元素的三个方法
 
-poll()等待加锁，获取锁后不做等待
+poll()非中断加锁，等待锁期间不会相应中断，获取锁后不做等待
 
-poll(long timeout, TimeUnit unit)占加锁，获取锁后限时等待
+poll(long timeout, TimeUnit unit)中断加锁，获取锁后限时等待
 
-take()抢占加锁，获取锁后不限时等待
+take()中断加锁，获取锁后不限时等待
 
 ```java
     public E poll() {
         final ReentrantLock lock = this.lock;
-        lock.lock();//等待加锁
+        lock.lock();//非中断加锁
         try {
             return (count == 0) ? null : dequeue();
         } finally {
@@ -511,7 +511,7 @@ take()抢占加锁，获取锁后不限时等待
 
     public E take() throws InterruptedException {
         final ReentrantLock lock = this.lock;
-        lock.lockInterruptibly();//抢占加锁
+        lock.lockInterruptibly();//中断加锁
         try {
             while (count == 0)
                 notEmpty.await();//不限时等待
@@ -524,7 +524,7 @@ take()抢占加锁，获取锁后不限时等待
     public E poll(long timeout, TimeUnit unit) throws InterruptedException {
         long nanos = unit.toNanos(timeout);
         final ReentrantLock lock = this.lock;
-        lock.lockInterruptibly();//抢占加锁
+        lock.lockInterruptibly();//中断加锁
         try {
             while (count == 0) {
                 if (nanos <= 0)
